@@ -5,9 +5,9 @@ function createPlayer(name, symbol) {
 
 const gameBoard = (() => {
     let board = [
-        [""], [""], [""],
-        [""], [""], [""],
-        [""], [""], [""]
+        [" - "], [" - "], [" - "],
+        [" - "], [" - "], [" - "],
+        [" - "], [" - "], [" - "]
     ];
     let turn = 0;
     let progress = false;
@@ -27,7 +27,7 @@ const gameBoard = (() => {
 
     const reset = () => {
         board = board.map((mark) => {
-            return mark = [""];
+            return mark = [" - "];
         });
         turn = 0;
         progress = false;
@@ -35,7 +35,7 @@ const gameBoard = (() => {
 
     const checkOccupied = (id, symbol) => {
         const tileInProgress = id.slice(1);
-        if (board[tileInProgress][0] === "") {
+        if (board[tileInProgress][0] === " - ") {
             return gameBoard.occupy(tileInProgress, symbol);
         }
     }
